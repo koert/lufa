@@ -157,7 +157,7 @@ void SetupHardware(void)
 /** Event handler for the library USB Connection event. */
 void EVENT_USB_Device_Connect(void)
 {
-	LEDs_SetAllLEDs(LEDMASK_USB_ENUMERATING);
+	LEDs_SetAllLEDs(LEDS_LED2);
 }
 
 /** Event handler for the library USB Disconnection event. */
@@ -169,6 +169,7 @@ void EVENT_USB_Device_Disconnect(void)
 /** Event handler for the library USB Configuration Changed event. */
 void EVENT_USB_Device_ConfigurationChanged(void)
 {
+	LEDs_SetAllLEDs(LEDS_LED3);
 	bool ConfigSuccess = true;
 
 	ConfigSuccess &= MIDI_Device_ConfigureEndpoints(&Keyboard_MIDI_Interface);
